@@ -5,12 +5,7 @@ import com.baomidou.mybatisplus.spring.service.impl.ServiceImpl;
 import java.util.ArrayList;
 import com.gulimall.common.core.domain.Ztree;
 #end
-#foreach ($column in $columns)
-#if($column.javaField == 'createTime' || $column.javaField == 'updateTime')
-import com.gulimall.common.utils.DateUtils;
-#break
-#end
-#end
+
 import org.springframework.stereotype.Service;
 #if($table.sub)
 import java.util.ArrayList;

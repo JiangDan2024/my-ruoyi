@@ -3,15 +3,18 @@ package ${packageName}.domain;
 #foreach ($import in $importList)
 import ${import};
 #end
+#foreach ($column in $columns)
+#if($column.javaType == "Date" || $column.javaType == "java.util.Date")
+import java.util.Date;
+#break
+#end
+#end
 import com.gulimall.common.annotation.Excel;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.IdType;
-import java.util.Date;
-import java.util.List;
 #if($table.crud || $table.sub)
 import com.gulimall.common.core.domain.BaseEntity;
 #elseif($table.tree)
